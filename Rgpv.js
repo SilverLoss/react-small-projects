@@ -35,185 +35,38 @@ function Rgpv() {
   var [creditpr4, setCreditpr4] = useState(2);
 
   // Total
-
+  var [sgpa, setSgpa] = useState(undefined);
   var [crtotal, setCrTotal] = useState(undefined);
   var [res, setRes] = useState(undefined);
 
   function Val(e) {
-    if (e.target.id == "sub1") {
-      setMarks1(e.target.value);
-    } else if (e.target.id == "sub2") {
-      setMarks2(e.target.value);
-    } else if (e.target.id == "sub3") {
-      setMarks3(e.target.value);
-    } else if (e.target.id == "sub4") {
-      setMarks4(e.target.value);
-    } else if (e.target.id == "pract1") {
-      setMarkspr1(e.target.value);
-    } else if (e.target.id == "pract2") {
-      setMarkspr2(e.target.value);
-    } else if (e.target.id == "pract3") {
-      setMarkspr3(e.target.value);
+    if (e.target.id === "sub1") {
+      setMarks1(parseInt(e.target.value) / 10);
+    } else if (e.target.id === "sub2") {
+      setMarks2(parseInt(e.target.value) / 10);
+    } else if (e.target.id === "sub3") {
+      setMarks3(parseInt(e.target.value) / 10);
+    } else if (e.target.id === "sub4") {
+      setMarks4(parseInt(e.target.value) / 10);
+    } else if (e.target.id === "pract1") {
+      setMarkspr1(parseInt(e.target.value) / 10);
+    } else if (e.target.id === "pract2") {
+      setMarkspr2(parseInt(e.target.value) / 10);
+    } else if (e.target.id === "pract3") {
+      setMarkspr3(parseInt(e.target.value) / 10);
     } else {
-      setMarkspr4(e.target.value);
+      setMarkspr4(parseInt(e.target.value) / 10);
     }
   }
 
   function calculate(e) {
-    // Check Marks
-    if (marks1 == 10) {
-      setGrade1("A+");
-    } else if (marks1 == 9) {
-      setGrade1("A");
-    } else if (marks1 == 8) {
-      setGrade1("B+");
-    } else if (marks1 == 7) {
-      setGrade1("B");
-    } else if (marks1 == 6) {
-      setGrade1("C+");
-    } else if (marks1 == 5) {
-      setGrade1("C");
-    } else if (marks1 == 4) {
-      setGrade1("D");
-    } else {
-      setGrade1("F");
-      setCredit1(0);
-    }
+    var sgpa1 = 0;
+    var sgpaArr = [];
+    var creditOne = [];
+    var result = "";
+    var totalCr = 0;
 
-    if (marks2 == 10) {
-      setGrade2("A+");
-    } else if (marks2 == 9) {
-      setGrade2("A");
-    } else if (marks2 == 8) {
-      setGrade2("B+");
-    } else if (marks2 == 7) {
-      setGrade2("B");
-    } else if (marks2 == 6) {
-      setGrade2("C+");
-    } else if (marks2 == 5) {
-      setGrade2("C");
-    } else if (marks2 == 4) {
-      setGrade2("D");
-    } else {
-      setGrade2("F");
-      setCredit2(0);
-    }
-
-    if (marks3 == 10) {
-      setGrade3("A+");
-    } else if (marks3 == 9) {
-      setGrade3("A");
-    } else if (marks3 == 8) {
-      setGrade3("B+");
-    } else if (marks3 == 7) {
-      setGrade3("B");
-    } else if (marks3 == 6) {
-      setGrade3("C+");
-    } else if (marks3 == 5) {
-      setGrade3("C");
-    } else if (marks3 == 4) {
-      setGrade3("D");
-    } else {
-      setGrade3("F");
-      setCredit3(0);
-    }
-
-    if (marks4 == 10) {
-      setGrade4("A+");
-    } else if (marks4 == 9) {
-      setGrade4("A");
-    } else if (marks4 == 8) {
-      setGrade4("B+");
-    } else if (marks4 == 7) {
-      setGrade4("B");
-    } else if (marks4 == 6) {
-      setGrade4("C+");
-    } else if (marks4 == 5) {
-      setGrade4("C");
-    } else if (marks4 == 4) {
-      setGrade4("D");
-    } else {
-      setGrade4("F");
-      setCredit4(0);
-    }
-
-    if (markspr1 == 10) {
-      setGradepr1("A+");
-    } else if (markspr1 == 9) {
-      setGradepr1("A");
-    } else if (markspr1 == 8) {
-      setGradepr1("B+");
-    } else if (markspr1 == 7) {
-      setGradepr1("B");
-    } else if (markspr1 == 6) {
-      setGradepr1("C+");
-    } else if (markspr1 == 5) {
-      setGradepr1("C");
-    } else if (markspr1 == 4) {
-      setGradepr1("D");
-    } else {
-      setGradepr1("F");
-      setCreditpr1(0);
-    }
-
-    if (markspr2 == 10) {
-      setGradepr2("A+");
-    } else if (markspr2 == 9) {
-      setGradepr2("A");
-    } else if (markspr2 == 8) {
-      setGradepr2("B+");
-    } else if (markspr2 == 7) {
-      setGradepr2("B");
-    } else if (markspr2 == 6) {
-      setGradepr2("C+");
-    } else if (markspr2 == 5) {
-      setGradepr2("C");
-    } else if (markspr2 == 4) {
-      setGradepr2("D");
-    } else {
-      setGradepr2("F");
-      setCreditpr2(0);
-    }
-
-    if (markspr3 == 10) {
-      setGradepr3("A+");
-    } else if (markspr3 == 9) {
-      setGradepr3("A");
-    } else if (markspr3 == 8) {
-      setGradepr3("B+");
-    } else if (markspr3 == 7) {
-      setGradepr3("B");
-    } else if (markspr3 == 6) {
-      setGradepr3("C+");
-    } else if (markspr3 == 5) {
-      setGradepr3("C");
-    } else if (markspr3 == 4) {
-      setGradepr3("D");
-    } else {
-      setGradepr3("F");
-      setCreditpr3(0);
-    }
-
-    if (markspr4 == 10) {
-      setGradepr4("A+");
-    } else if (markspr4 == 9) {
-      setGradepr4("A");
-    } else if (markspr4 == 8) {
-      setGradepr4("B+");
-    } else if (markspr4 == 7) {
-      setGradepr4("B");
-    } else if (markspr4 == 6) {
-      setGradepr4("C+");
-    } else if (markspr4 == 5) {
-      setGradepr4("C");
-    } else if (markspr4 == 4) {
-      setGradepr4("D");
-    } else {
-      setGradepr4("F");
-      setCreditpr4(0);
-    }
-
-    var totalCr =
+    totalCr =
       credit1 +
       credit2 +
       credit3 +
@@ -223,49 +76,253 @@ function Rgpv() {
       creditpr3 +
       creditpr4;
 
-    console.log(totalCr)
-    if (totalCr == 24) {
-      setRes("Pass");
-    } else{
-      setRes("Fail")
+    sgpaArr.push(
+      marks1,
+      marks2,
+      marks3,
+      marks4,
+      markspr1,
+      markspr2,
+      markspr3,
+      markspr4
+    );
+
+    creditOne.push(
+      credit1,
+      credit2,
+      credit3,
+      credit4,
+      creditpr1,
+      creditpr2,
+      creditpr3,
+      creditpr4
+    );
+
+    if (totalCr === 24) {
+      result = "Pass";
+    } else {
+      result = "Fail";
     }
 
+    // Check Marks
+    if (marks1 <= 10 && marks1 >= 9.1) {
+      setGrade1("A+");
+    } else if (marks1 <= 9 && marks1 >= 8.1) {
+      setGrade1("A");
+    } else if (marks1 <= 8 && marks1 >= 7.1) {
+      setGrade1("B+");
+    } else if (marks1 <= 7 && marks1 >= 6.1) {
+      setGrade1("B");
+    } else if (marks1 <= 6 && marks1 >= 5.1) {
+      setGrade1("C+");
+    } else if (marks1 <= 5 && marks1 >= 4.1) {
+      setGrade1("C");
+    } else if (marks1 <= 4 && marks1 >= 3.1) {
+      setGrade1("D");
+    } else if (marks1 <= 3 && marks1 >= 2.6) {
+      setGrade1("D*");
+      result = "Pass with Grace";
+    } else {
+      setGrade1("F");
+      setCredit1(0);
+    }
+
+    if (marks2 <= 10 && marks2 >= 9.1) {
+      setGrade2("A+");
+    } else if (marks2 <= 9 && marks2 >= 8.1) {
+      setGrade2("A");
+    } else if (marks2 <= 8 && marks2 >= 7.1) {
+      setGrade2("B+");
+    } else if (marks2 <= 7 && marks2 >= 6.1) {
+      setGrade2("B");
+    } else if (marks2 <= 6 && marks2 >= 5.1) {
+      setGrade2("C+");
+    } else if (marks2 <= 5 && marks2 >= 4.1) {
+      setGrade2("C");
+    } else if (marks2 <= 4 && marks2 >= 3.1) {
+      setGrade2("D");
+    } else if (marks2 <= 3 && marks2 >= 2.6) {
+      setGrade2("D*");
+      result = "Pass with Grace";
+    } else {
+      setGrade2("F");
+      setCredit2(0);
+    }
+
+    if (marks3 <= 10 && marks3 >= 9.1) {
+      setGrade3("A+");
+    } else if (marks3 <= 9 && marks3 >= 8.1) {
+      setGrade3("A");
+    } else if (marks3 <= 8 && marks3 >= 7.1) {
+      setGrade3("B+");
+    } else if (marks3 <= 7 && marks3 >= 6.1) {
+      setGrade3("B");
+    } else if (marks3 <= 6 && marks3 >= 5.1) {
+      setGrade3("C+");
+    } else if (marks3 <= 5 && marks3 >= 4.1) {
+      setGrade3("C");
+    } else if (marks3 <= 4 && marks3 >= 3.1) {
+      setGrade3("D");
+    } else if (marks3 <= 3 && marks3 >= 2.6) {
+      setGrade3("D*");
+      result = "Pass with Grace";
+    } else {
+      setGrade3("F");
+      setCredit3(0);
+    }
+
+    if (marks4 <= 10 && marks4 >= 9.1) {
+      setGrade4("A+");
+    } else if (marks4 <= 9 && marks4 >= 8.1) {
+      setGrade4("A");
+    } else if (marks4 <= 8 && marks4 >= 7.1) {
+      setGrade4("B+");
+    } else if (marks4 <= 7 && marks4 >= 6.1) {
+      setGrade4("B");
+    } else if (marks4 <= 6 && marks4 >= 5.1) {
+      setGrade4("C+");
+    } else if (marks4 <= 5 && marks4 >= 4.1) {
+      setGrade4("C");
+    } else if (marks4 <= 4 && marks4 >= 3.1) {
+      setGrade4("D");
+    } else if (marks4 <= 3 && marks4 >= 2.6) {
+      setGrade4("D*");
+      result = "Pass with Grace";
+    } else {
+      setGrade4("F");
+      setCredit4(0);
+    }
+
+    if (markspr1 <= 10 && markspr1 >= 9.1) {
+      setGradepr1("A+");
+    } else if (markspr1 <= 9 && markspr1 >= 8.1) {
+      setGradepr1("A");
+    } else if (markspr1 <= 8 && markspr1 >= 7.1) {
+      setGradepr1("B+");
+    } else if (markspr1 <= 7 && markspr1 >= 6.1) {
+      setGradepr1("B");
+    } else if (markspr1 <= 6 && markspr1 >= 5.1) {
+      setGradepr1("C+");
+    } else if (markspr1 <= 5 && markspr1 >= 4.1) {
+      setGradepr1("C");
+    } else if (markspr1 <= 4 && markspr1 >= 3.1) {
+      setGradepr1("D");
+    } else if (markspr1 <= 3 && markspr1 >= 2.6) {
+      setGradepr1("D*");
+      result = "Pass with Grace";
+    } else {
+      setGradepr1("F");
+      setCreditpr1(0);
+    }
+
+    if (markspr2 <= 10 && markspr2 >= 9.1) {
+      setGradepr2("A+");
+    } else if (markspr2 <= 9 && markspr2 >= 8.1) {
+      setGradepr2("A");
+    } else if (markspr2 <= 8 && markspr2 >= 7.1) {
+      setGradepr2("B+");
+    } else if (markspr2 <= 7 && markspr2 >= 6.1) {
+      setGradepr2("B");
+    } else if (markspr2 <= 6 && markspr2 >= 5.1) {
+      setGradepr2("C+");
+    } else if (markspr2 <= 5 && markspr2 >= 4.1) {
+      setGradepr2("C");
+    } else if (markspr2 <= 4 && markspr2 >= 3.1) {
+      setGradepr2("D");
+    } else if (markspr2 <= 3 && markspr2 >= 2.6) {
+      setGradepr2("D*");
+      result = "Pass with Grace";
+    } else {
+      setGradepr2("F");
+      setCreditpr2(0);
+    }
+
+    if (markspr3 <= 10 && markspr3 >= 9.1) {
+      setGradepr3("A+");
+    } else if (markspr3 <= 9 && markspr3 >= 8.1) {
+      setGradepr3("A");
+    } else if (markspr3 <= 8 && markspr3 >= 7.1) {
+      setGradepr3("B+");
+    } else if (markspr3 <= 7 && markspr3 >= 6.1) {
+      setGradepr3("B");
+    } else if (markspr3 <= 6 && markspr3 >= 5.1) {
+      setGradepr3("C+");
+    } else if (markspr3 <= 5 && markspr3 >= 4.1) {
+      setGradepr3("C");
+    } else if (markspr3 <= 4 && markspr3 >= 3.1) {
+      setGradepr3("D");
+    } else if (markspr3 <= 3 && markspr3 >= 2.6) {
+      setGradepr3("D*");
+      result = "Pass with Grace";
+    } else {
+      setGradepr3("F");
+      setCreditpr3(0);
+    }
+
+    if (markspr4 <= 10 && markspr4 >= 9.1) {
+      setGradepr4("A+");
+    } else if (markspr4 <= 9 && markspr4 >= 8.1) {
+      setGradepr4("A");
+    } else if (markspr4 <= 8 && markspr4 >= 7.1) {
+      setGradepr4("B+");
+    } else if (markspr4 <= 7 && markspr4 >= 6.1) {
+      setGradepr4("B");
+    } else if (markspr4 <= 6 && markspr4 >= 5.1) {
+      setGradepr4("C+");
+    } else if (markspr4 <= 5 && markspr4 >= 4.1) {
+      setGradepr4("C");
+    } else if (markspr4 <= 4 && markspr4 >= 3.1) {
+      setGradepr4("D");
+    } else if (markspr4 <= 3 && markspr4 >= 2.6) {
+      setGradepr4("D*");
+      result = "Pass with Grace";
+    } else {
+      setGradepr4("F");
+      setCreditpr4(0);
+    }
+
+    for (var i = 0; i < sgpaArr.length; i++) {
+      sgpa1 += sgpaArr[i] * creditOne[i];
+    }
+
+    setRes(result);
     setCrTotal(totalCr);
+    setSgpa(sgpa1 / totalCr);
 
     e.preventDefault();
   }
 
   return (
     <div id="container" className="d-flex-row">
-      <div className="card d-flex-col" style={{ display: "block" }}>
+      <div className="card d-flex-col">
         <h1>Print Marksheet</h1>
         <div className="main-div d-flex-row">
           <div>
             <input
               type="text"
               id="sub1"
-              placeholder="Enter R.C.C Marks / 10"
+              placeholder="Enter R.C.C Marks / 100"
               onChange={(e) => Val(e)}
             />{" "}
             <br />
             <input
               type="text"
               id="sub2"
-              placeholder="Enter Steel Marks / 10"
+              placeholder="Enter Steel Marks / 100"
               onChange={(e) => Val(e)}
             />{" "}
             <br />
             <input
               type="text"
               id="sub3"
-              placeholder="Enter Pavement Design Marks / 10"
+              placeholder="Enter Pavement Design Marks / 100"
               onChange={(e) => Val(e)}
             />{" "}
             <br />
             <input
               type="text"
               id="sub4"
-              placeholder="Enter Soil Mech Marks / 10"
+              placeholder="Enter Soil Mech Marks / 100"
               onChange={(e) => Val(e)}
             />{" "}
             <br />
@@ -275,28 +332,28 @@ function Rgpv() {
             <input
               type="text"
               id="pract1"
-              placeholder="Enter R.C.C Practical Marks / 10"
+              placeholder="Enter R.C.C Practical Marks / 100"
               onChange={(e) => Val(e)}
             />{" "}
             <br />
             <input
               type="text"
               id="pract2"
-              placeholder="Enter Steel Practical Marks / 10"
+              placeholder="Enter Steel Practical Marks / 100"
               onChange={(e) => Val(e)}
             />{" "}
             <br />
             <input
               type="text"
               id="pract3"
-              placeholder="Enter Pav. Design Practical Marks / 10"
+              placeholder="Enter Pav. Design Practical Marks / 100"
               onChange={(e) => Val(e)}
             />{" "}
             <br />
             <input
               type="text"
               id="pract4"
-              placeholder="Enter Soil Mech. Practical Marks / 10"
+              placeholder="Enter Soil Mech. Practical Marks / 100"
               onChange={(e) => Val(e)}
             />{" "}
             <br />
@@ -306,7 +363,7 @@ function Rgpv() {
         <button onClick={calculate}>Click</button>
       </div>
 
-      <div className="result" style={{ display: "block" }}>
+      <div className="result">
         <header id="logo">
           <img src={logo} alt="Logo" style={{ width: 80, height: 80 }} />
           <div>
@@ -361,7 +418,7 @@ function Rgpv() {
               </table>
             </div>
             <div style={{ textAlign: "right", marginRight: "20px" }}>
-              <img src={profile} alt="Profile Photo" />
+              <img src={profile} alt="Profile" />
               <br />
               <span style={{ fontWeight: "bold", fontSize: "15px" }}>
                 STATUS: Regular
@@ -472,7 +529,7 @@ function Rgpv() {
                     Result : {res}
                   </th>
                   <th colSpan={3} style={{ height: "30px" }}>
-                    SGPA : 6.50
+                    SGPA : {sgpa}
                   </th>
                 </tr>
                 <tr
@@ -501,8 +558,9 @@ function Rgpv() {
           </div>
         </section>
         <footer>
-          <p>0819</p>
+          <p>0811</p>
           <p>3438440</p>
+          <br />
         </footer>
       </div>
     </div>
